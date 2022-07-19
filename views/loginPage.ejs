@@ -1,0 +1,37 @@
+<%-include('header')%>
+<section id="form"><!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form"><!--login form-->
+                    <h2>Login to your account</h2>
+                    <form action="#" id="login_form">
+                        <input name="userEmail" type="email" placeholder="Email Address">
+                        <input name="userPassword" type="password" placeholder="password">
+                        
+                        <button type="button" class="btn btn-default btn-login">Login</button>
+                    </form>
+                    <p class="login_err_msg"></p>
+                </div><!--/login form-->
+            </div>
+            <div class="col-sm-1">
+                <h2 class="or">OR</h2>
+            </div>
+            <div class="col-sm-4">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>New User Signup!</h2>
+                    <form action="#" id="register_form">
+                        <input type="text" placeholder="Name" name="userName">
+                        <input type="text" placeholder="Mobile" name="userMobile">
+                        <input type="email" placeholder="Email Address" name="userEmail">
+                        <input type="password" placeholder="Password" name="userPassword">
+                        <input type="password" placeholder="Confirm Password" name="userCpass">
+                        <button type="button" class="btn btn-default btn-register">Signup</button>
+                    </form>
+                    <p class="register_err_msg"></p>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </div>
+</section>
+<%-include('footer')%>

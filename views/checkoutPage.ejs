@@ -1,0 +1,75 @@
+<%-include('header')%>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+
+           
+            
+                <!-- <%=result%> -->
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description">Name</td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Discount</td>
+                        <td class="quantity">Discounted Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% sum = 0%>
+                    <% result.forEach(function(obj , i){ %>
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img width="100" height="120" src="/public/products/<%=obj.productImagePath%>" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href=""><%=obj. productName%> </a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p><%=obj. productPrice%></p>
+                        </td>
+                        <td class="cart_quantity">
+                            <p><%=obj.productDiscount%> %</p>
+                        </td>
+                        <td class="cart_quantity">
+                            <%= (obj.productPrice - (obj.productPrice*obj.productDiscount/100)) %>
+                        </td>
+                        <td class="cart_quantity">
+                            <%=quantity[i]%>
+                        </td>
+                        <td class="cart_total cart_total_price">
+                           
+                            <%= ((obj.productPrice - (obj.productPrice*obj.productDiscount/100)) ) * (quantity[i])%>
+                        </td>
+                        
+                    </tr>
+                    <%
+                        sum = sum + (((obj.productPrice - (obj.productPrice*obj.productDiscount/100)) ) * (quantity[i]))
+                    %>
+                    <%})%>
+
+                    <tr>
+                        <td colspan="7">Total : <%=sum%></td>
+                    </tr>
+
+                    
+                   
+                
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+<%-include('footer')%>

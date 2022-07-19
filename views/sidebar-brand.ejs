@@ -1,0 +1,14 @@
+<div class="brands_products"><!--brands_products-->
+    <h2>Brands</h2>
+    <div class="brands-name">
+        <ul class="nav nav-pills nav-stacked">
+            <% task2.forEach(function(obj){%>
+                <li>
+                <a href="#" class="brand_data" for="<%= obj._id%>">
+                    <%= obj.brName%><br />
+                    <%= obj._id%>
+                </a> </li>
+            <% }) %>
+        </ul>
+    </div>
+</div><!--/brands_products-->

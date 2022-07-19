@@ -1,0 +1,14 @@
+<h2>Category</h2>
+    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+        <% task1.forEach(function(obj){%>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                <a href="#" for="<%= obj._id%>" class='catRecord'>
+                    <%= obj.catName%>
+                    <%= obj._id%>
+                </a></h4>
+            </div>
+        </div>
+        <% }) %>
+    </div><!--/category-products-->

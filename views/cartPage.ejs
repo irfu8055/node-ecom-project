@@ -1,0 +1,76 @@
+<%-include('header')%>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a></li>
+              <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+
+            <% if(msg){ %>
+                <h1 class="text-center">Cart Empty</h1>
+            <% }else{ %>
+            
+                <!-- <%=result%> -->
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description">Name</td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Discount</td>
+                        <td class="quantity">Discounted Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        <td class="total">Delete</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <form method="post" action="/checkout">
+                    <% result.forEach(function(obj){ %>
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img width="100" height="120" src="/public/products/<%=obj.productImagePath%>" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href=""><%=obj. productName%></a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p><%=obj. productPrice%></p>
+                        </td>
+                        <td class="cart_quantity">
+                            <p><%=obj.productDiscount%> %</p>
+                        </td>
+                        <td class="cart_quantity">
+                            <%= (obj.productPrice - (obj.productPrice*obj.productDiscount/100)) %>
+                        </td>
+                        <td class="cart_quantity">
+                            <input type="number" class="qunatity_class" min="1" max="10" value="1" name="all_quantity"/>
+                        </td>
+                        <td class="cart_total cart_total_price">
+                            <%= (obj.productPrice - (obj.productPrice*obj.productDiscount/100)) %>
+                            
+                        </td>
+                        <td class="cart_delete">
+                            <a class="cart_quantity_delete" for="<%=obj._id%>" href=""><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+
+                    <%})%>
+
+                    
+                   <tr>
+                       <td><button type="submit">CheckOut</button></td>
+                   </tr>
+                </form>
+                </tbody>
+            </table>
+
+            <% } %>
+        </div>
+    </div>
+</section>
+<%-include('footer')%>
